@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Vets app</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Add Customers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/fetch-customers">View Customers</a>
+      </li>
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" href="/fetch-customers">Search Customers</a>-->
+<!--      </li>-->
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">Manage Pets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Manage Consultations</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  <div class="mt-4 p-5 bg-primary text-white rounded">
+    <h1>Vets App</h1>
+    <p>Dear, {{name}} <br> Welcome to Vets App <br> {{email}}</p>
+
+  </div>
+
+
+<div class="container mt-3">
+  <h2> Update customer</h2>
+  <form action="/Update-customer-db" , method = "post">
+      <div class="mb-3 mt-3">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="{{customer['name']}}">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="phone">Phone:</label>
+      <input type="text" class="form-control" id="phone" placeholder="Enter phone" name="phone" value="{{customer['phone']}}">
+    </div>
+
+
+    <div class="mb-3 mt-3">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="{{customer['email']}}">
+    </div>
+    <div class="mb-3">
+      <label for="age">Age:</label>
+      <input type="number" class="form-control" id="age" placeholder="Enter Age" name="age" value="{{customer['age']}}">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <div class="form-check">
+        <label for="age">Gender:</label><br>
+      <input type="radio" class="form-check-input" id="radio1"  name="optradio" value="Male" checked>
+      <label class="form-check-label" for="radio1">Male</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" id="radio2" name="optradio" value="female">
+      <label class="form-check-label" for="radio2">Female</label>
+    </div>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="address">Address:</label>
+      <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" value="{{customer['address']}}">
+    </div>
+
+    <input type="hidden" name="cid" value="{{customer['_id']}}">
+        <button type="submit" class="btn btn-primary">Update Customer</button>
+  </form>
+</div>
+
+</body>
+</html>
